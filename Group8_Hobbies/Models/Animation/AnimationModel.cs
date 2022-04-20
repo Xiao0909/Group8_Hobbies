@@ -9,7 +9,6 @@ namespace Group8_Hobbies.Models
 {
     public class AnimationModel
     {
-        [Key]
         public int AnimeId { get; set; }
         public string Name { get; set; }
         public int PublishYear { get; set; }

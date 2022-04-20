@@ -1,8 +1,31 @@
-﻿@{
+﻿@model List<AnimationModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Group 8 --Hobbies</h1>
     <h2>Animation Page</h2>
+
+    <table class="=table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Publish Year</th>
+                <th>Watching Year</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anime in Model)
+            {
+                <tr>
+                    <td>@anime.Name</td>
+                    <td>@anime.PublishYear</td>
+                    <td>@anime.WatchingYear</td>
+                    <td>@anime.Rate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
