@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Group8_Hobbies.Models;
 
 namespace Group8_Hobbies
 {
@@ -24,6 +27,9 @@ namespace Group8_Hobbies
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<HobbiesContextModel>(options =>
+            options.UseSqlServer(
+                Configuration.GetConnectionString("HobbiesContextModel")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

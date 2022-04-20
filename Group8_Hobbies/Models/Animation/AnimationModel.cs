@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Group8_Hobbies.Models.Animation
+
+namespace Group8_Hobbies.Models
 {
     public class AnimationModel
     {
+        [Key]
         public int AnimeId { get; set; }
         public string Name { get; set; }
         public int PublishYear { get; set; }

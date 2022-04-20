@@ -2,19 +2,23 @@
 
 namespace Group8_Hobbies.Models
 {
-    public class AnimeContextModel : DbContext
+    public class HobbiesContextModel : DbContext
     {
-        public AnimeContextModel(DbContextOptions<AnimeContextModel> options) 
+        public HobbiesContextModel(DbContextOptions<HobbiesContextModel> options) 
             : base(options) { }
         
-        public DbSet<Animation.AnimationModel> Animations { get; set; }
-        public DbSet<Animation.PublishModel> Publishes { get; set; }
+        public DbSet<AnimationModel> Animations { get; set; }
+        public DbSet<PublishModel> Publishes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Animation.AnimationModel>().HasData(
+            modelBuilder.Entity<AnimationModel>().HasKey(x => x.AnimeId);
+            modelBuilder.Entity<PublishModel>().HasKey(x => x.PublisherId);
+
+            modelBuilder.Entity<AnimationModel>().HasData(
+
                 // animation info
-                new Animation.AnimationModel
+                new AnimationModel
                 {
                     AnimeId = 1,
                     Name = "Demon Slayer",
@@ -23,7 +27,7 @@ namespace Group8_Hobbies.Models
                     Rate = 4,
                     PublisherId = 1,
                 },
-                new Animation.AnimationModel
+                new AnimationModel
                 {
                     AnimeId = 2,
                     Name = "My NeighborTotoro",
@@ -32,7 +36,7 @@ namespace Group8_Hobbies.Models
                     Rate = 5,
                     PublisherId = 2,
                 },
-                new Animation.AnimationModel
+                new AnimationModel
                 {
                     AnimeId = 3,
                     Name = "White Cat Legend",
@@ -44,20 +48,20 @@ namespace Group8_Hobbies.Models
             );
 
             // publisher info
-            modelBuilder.Entity<Animation.PublishModel>().HasData(
-              new Animation.PublishModel
+            modelBuilder.Entity<PublishModel>().HasData(
+              new PublishModel
               {
                   PublisherId = 1,
                   Country = "Japan",
                   Name = "UFOTable"
               },
-              new Animation.PublishModel
+              new PublishModel
               {
                   PublisherId = 2,
                   Country = "Japan",
                   Name = "Ghibli"
               },
-              new Animation.PublishModel
+              new PublishModel
               {
                   PublisherId = 3,
                   Country = "China",
