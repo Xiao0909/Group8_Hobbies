@@ -2,6 +2,6 @@
 {
     public class SportsModel
     {
-        public int Id { get; set; }
+        public int sportsModelId { get; set; }
     }
 }
