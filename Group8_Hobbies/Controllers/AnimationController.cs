@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Group8_Hobbies.Controllers
 {
@@ -18,7 +19,8 @@ namespace Group8_Hobbies.Controllers
         }
         public IActionResult Index()
         {
-            var animes = context.Animations.OrderBy(n => n.Name).ToList();
+            var animes = context.Animations.Include(p => p.Publish)
+                .OrderBy(n => n.Name).ToList();
             return View(animes);
         }
 
@@ -57,6 +59,23 @@ namespace Group8_Hobbies.Controllers
                 ViewBag.Action = (anime.AnimeId == 0) ? "Add" : "Edit";
             }
             return View(anime);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            ViewBag.Action = "Edit";
+            var anime = context.Animations.Find(id);
+            return View(anime);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(AnimationModel model)
+        {
+            context.Animations.Remove(model);
+            context.SaveChanges();
+            return RedirectToAction("index", "AnimationController");
+
         }
     }
 }

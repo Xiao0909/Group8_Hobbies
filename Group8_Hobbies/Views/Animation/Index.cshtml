@@ -7,13 +7,15 @@
     <h1 class="display-4">Group 8 --Hobbies</h1>
     <h2>Animation Page</h2>
 
-    <table class="=table table-bordered table-striped">
+    <a asp-controller="AnimationController" asp-action="Add">Add New Animation</a>
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Publish Year</th>
                 <th>Watching Year</th>
                 <th>Rate</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,10 @@
                     <td>@anime.PublishYear</td>
                     <td>@anime.WatchingYear</td>
                     <td>@anime.Rate</td>
+                    <td>
+                        <a asp-controller="AnimationController" asp-action="Edit" asp-route-id="@anime.AnimeId">Edit</a>
+                        <a asp-controller="AnimationController" asp-action="Delete" asp-route-id="@anime.AnimeId">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>
