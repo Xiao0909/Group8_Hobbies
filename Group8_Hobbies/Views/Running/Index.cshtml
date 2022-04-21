@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Running";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Group 8 --Hobbies</h1>
+    <h2>Running Page</h2>
+
+    <p>
+        Running is a great hobby that has both physical and mental benefits.  It can also be a lot of fun to sign up for various unique races all across the world
+        to try and beat your personal best times in front of a crowd.  The table below includes some notable races in the United States.
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var race in Model)
+            {
+                <tr>
+                    <th scope="row">@race.Name</th>
+                    <td>@race.Distance miles</td>
+                    <td>@race.Date</td>
+                    <td><a href="@race.Website">Link</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
