@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Group8_Hobbies.Models.Sports
+@model List<SportsModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,7 +8,7 @@
     <h1 class="display-4">Group 8 --Hobbies</h1>
     <h2>Sports Page</h2>
 
-@*    <a asp-controller="SportsController" asp-action="Add">Add New Sport</a>*@
+    @*<a asp-controller="SportsController" asp-action="Add">Add New Sport</a>*@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -27,11 +29,12 @@
                     <td>@sport.TeamName</td>
                     <td>@sport.TeamWins</td>
                     <td>@sport.TeamLosses</td>
-                    <td></td>
+                    @*<td>
+                        <a asp-controller="SportsController" asp-action="Edit" asp-route-id="@sport.SportsModelId">Edit</a>
+                        <a asp-controller="SportsController" asp-action="Delete" asp-route-id="@sport.SportsModelId">Delete</a>
+                    </td>*@
                 </tr>
             }
         </tbody>
     </table>
-</div>
-
 </div>
