@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Group8_Hobbies.Models.Animation
+namespace Group8_Hobbies.Models
 {
     public class PublishModel
     {
