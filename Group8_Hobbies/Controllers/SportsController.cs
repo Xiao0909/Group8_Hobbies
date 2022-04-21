@@ -6,9 +6,6 @@ namespace Group8_Hobbies.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.Title = "Sports";
-            ViewBag.Description = "This is where Sports page goes.";
-            ViewBag.Wins = 99;
             return View();
         }
     }
