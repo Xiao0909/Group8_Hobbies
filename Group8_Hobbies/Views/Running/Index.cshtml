@@ -1,44 +1,35 @@
-﻿@{
+@{
     ViewData["Title"] = "Running Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Group 8 - Hobbies</h1>
     <h2 style=text-align:center;>@ViewData["Title"]</h2>
+
+    <p>
+        Running is a great hobby that has both physical and mental benefits.  It can also be a lot of fun to sign up for various unique races all across the world
+        to try and beat your personal best times in front of a crowd.  The table below includes some notable races in the United States.
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var race in Model)
+            {
+                <tr>
+                    <th scope="row">@race.Name</th>
+                    <td>@race.Distance miles</td>
+                    <td>@race.Date</td>
+                    <td><a href="@race.Website">Link</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-<body> <!-- style="background-color:#C0C0C0;"-->
-    <div id="wrapper">
-        <main>
-            <P> info about the hobby will be contained here. for example, why you like it, reasoning for table elements,
-                etc.
-            </p>
-            <p> this is a demo table. it obviously doesn't have data fed into it but this is what the tables will look
-                like. i will change the styling for the table later on.
-            <table>
-                <tr>
-                    <th>Running</th>
-                    <th>Distance</th>
-                    <th>Location</th>
-                    <th>Time</th>
-                </tr>
-                <tr>
-                    <td>Grand Canyon</td>
-                    <td>30 miles</td>
-                    <td>Arizona</td>
-                    <td>2 hours</td>
-                </tr>
-                <tr>
-                    <td>Trail</td>
-                    <td>10 miles</td>
-                    <td>Ohio</td>
-                    <td>30 minutes</td>
-                </tr>
-            </table>
-            </p>
-        </main>
-        <footer>
-            Copyright &copy; 2022 University of Cincinnati, IT3047C<br>
-            <a href=https://github.com/Xiao0909/Group8_Hobbies>Github Repo!</a>
-        </footer>
-    </div>
-</body>
