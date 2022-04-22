@@ -1,41 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Sports Page";
+﻿@using Group8_Hobbies.Models.Sports
+@model List<SportsModel>
+@{
+    ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Group 8 - Hobbies</h1>
-<h2 style=text-align:center;>@ViewData["Title"]</h2>
-</div>
+    <h1 class="display-4">Group 8 --Hobbies</h1>
+    <h2>Sports Page</h2>
 
-<body> <!-- style="background-color:#C0C0C0;"-->
-    <div id="wrapper">
-        <main>
-            <p> info about the hobby will be contained here. for example, why you like it, reasoning for table elements,
-                etc.</p>
-            <p> this is a demo table. it obviously doesn't have data fed into it but this is what the tables will look
-                like. i will change the styling for the table later on.
-            <table>
+    @*<a asp-controller="SportsController" asp-action="Add">Add New Sport</a>*@
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Sports Name</th>
+                <th>Sports Description</th>
+                <th>Team Name</th>
+                <th>Team Wins</th>
+                <th>Team Losses</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var sport in Model)
+            {
                 <tr>
-                    <th>Sports Team</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
+                    <td>@sport.SportsName</td>
+                    <td>@sport.SportsDescription</td>
+                    <td>@sport.TeamName</td>
+                    <td>@sport.TeamWins</td>
+                    <td>@sport.TeamLosses</td>
+                    @*<td>
+                        <a asp-controller="SportsController" asp-action="Edit" asp-route-id="@sport.SportsModelId">Edit</a>
+                        <a asp-controller="SportsController" asp-action="Delete" asp-route-id="@sport.SportsModelId">Delete</a>
+                    </td>*@
                 </tr>
-                <tr>
-                    <td>Golden State Warriors</td>
-                    <td>73</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Cincinnati Bengals</td>
-                    <td>13</td>
-                    <td>8</td>
-                </tr>
-            </table>
-            </p>
-        </main>
-        <footer>
-            Copyright &copy; 2022 University of Cincinnati, IT3047C<br>
-            <a href=https://github.com/Xiao0909/Group8_Hobbies>Github Repo!</a>
-        </footer>
-    </div>
-</body>
+            }
+        </tbody>
+    </table>
+</div>

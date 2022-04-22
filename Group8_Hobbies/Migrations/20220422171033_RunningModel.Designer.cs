@@ -4,14 +4,16 @@ using Group8_Hobbies.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Group8_Hobbies.Migrations
 {
     [DbContext(typeof(HobbiesContextModel))]
-    partial class HobbiesContextModelModelSnapshot : ModelSnapshot
+    [Migration("20220422171033_RunningModel")]
+    partial class RunningModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,77 +120,69 @@ namespace Group8_Hobbies.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Group8_Hobbies.Models.Sports.SportsModel", b =>
+            modelBuilder.Entity("Group8_Hobbies.Models.RunningModel", b =>
                 {
-                    b.Property<int>("SportsModelId")
+                    b.Property<int>("RunningId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SportsDescription")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Distance")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SportsName")
+                    b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeamLosses")
-                        .HasColumnType("int");
+                    b.HasKey("RunningId");
 
-                    b.Property<string>("TeamName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeamWins")
-                        .HasColumnType("int");
-
-                    b.HasKey("SportsModelId");
-
-                    b.ToTable("Sports");
+                    b.ToTable("Races");
 
                     b.HasData(
                         new
                         {
-                            SportsModelId = 1,
-                            SportsDescription = "A sport where you score the ball into a basket 10 feet high from the ground",
-                            SportsName = "Basketball",
-                            TeamLosses = 29,
-                            TeamName = "Golden State Warriors",
-                            TeamWins = 53
+                            RunningId = 1,
+                            Date = new DateTime(2022, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Distance = 26.199999999999999,
+                            Name = "Cincinnati Flying Pig",
+                            Website = "https://flyingpigmarathon.com"
                         },
                         new
                         {
-                            SportsModelId = 2,
-                            SportsDescription = "A sport where you score the ball into a basket 10 feet high from the ground",
-                            SportsName = "Basketball",
-                            TeamLosses = 18,
-                            TeamName = "Phoenix Suns",
-                            TeamWins = 64
+                            RunningId = 2,
+                            Date = new DateTime(2022, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Distance = 3.1000000000000001,
+                            Name = "Cleveland Turkey Trot",
+                            Website = "https://www.turkeytrotcleveland.com"
                         },
                         new
                         {
-                            SportsModelId = 3,
-                            SportsDescription = "A sport where you score the ball into a basket 10 feet high from the ground",
-                            SportsName = "Basketball",
-                            TeamLosses = 26,
-                            TeamName = "Memphis Grizzlies",
-                            TeamWins = 56
+                            RunningId = 3,
+                            Date = new DateTime(2022, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Distance = 26.199999999999999,
+                            Name = "Boston Marathon",
+                            Website = "https://www.baa.org"
                         },
                         new
                         {
-                            SportsModelId = 4,
-                            SportsDescription = "A sport where you score the ball into a post with your foot",
-                            SportsName = "Soccer",
-                            TeamLosses = 3,
-                            TeamName = "Manchester City",
-                            TeamWins = 24
+                            RunningId = 4,
+                            Date = new DateTime(2022, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Distance = 6.2000000000000002,
+                            Name = "Bolder Boulder 10k",
+                            Website = "https://www.bolderboulder.com"
                         },
                         new
                         {
-                            SportsModelId = 5,
-                            SportsDescription = "A sport where you score the ball into a post with your foot",
-                            SportsName = "Soccer",
-                            TeamLosses = 2,
-                            TeamName = "Liverpool",
-                            TeamWins = 23
+                            RunningId = 5,
+                            Date = new DateTime(2022, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Distance = 26.199999999999999,
+                            Name = "Chicago Marathon",
+                            Website = "https://www.chicagomarathon.com"
                         });
                 });
 

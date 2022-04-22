@@ -1,19 +1,21 @@
-﻿using Group8_Hobbies.Models;
+using Group8_Hobbies.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Group8_Hobbies.Controllers
 {
     public class SportsController : Controller
     {
+        private HobbiesContextModel context { get; set; }
+
+        public SportsController (HobbiesContextModel ctx)
+        {
+            context = ctx;
+        }
         public IActionResult Index()
         {
-            return View();
+            var sports = context.Sports.OrderBy(n => n.SportsName).ToList();
+            return View(sports);
         }
     }
 }
