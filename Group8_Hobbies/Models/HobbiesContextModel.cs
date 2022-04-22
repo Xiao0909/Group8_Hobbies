@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Group8_Hobbies.Models
 {
@@ -9,11 +10,13 @@ namespace Group8_Hobbies.Models
         
         public DbSet<AnimationModel> Animations { get; set; }
         public DbSet<PublishModel> Publishes { get; set; }
+        public DbSet<RunningModel> Races { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AnimationModel>().HasKey(x => x.AnimeId);
             modelBuilder.Entity<PublishModel>().HasKey(x => x.PublisherId);
+            modelBuilder.Entity<RunningModel>().HasKey(x => x.RunningId);
 
             modelBuilder.Entity<AnimationModel>().HasData(
 
@@ -66,6 +69,50 @@ namespace Group8_Hobbies.Models
                   PublisherId = 3,
                   Country = "China",
                   Name = "Nice Boat Animation Studio"
+              }
+          );
+
+            // running races info
+            modelBuilder.Entity<RunningModel>().HasData(
+              new RunningModel
+              {
+                  RunningId = 1,
+                  Name = "Cincinnati Flying Pig",
+                  Distance = 26.2,
+                  Date = DateTime.Parse("05/01/2022"),
+                  Website = "https://flyingpigmarathon.com"
+              },
+              new RunningModel
+              {
+                  RunningId = 2,
+                  Name = "Cleveland Turkey Trot",
+                  Distance = 3.1,
+                  Date = DateTime.Parse("11/24/2022"),
+                  Website = "https://www.turkeytrotcleveland.com"
+              },
+              new RunningModel
+              {
+                  RunningId = 3,
+                  Name = "Boston Marathon",
+                  Distance = 26.2,
+                  Date = DateTime.Parse("04/18/2022"),
+                  Website = "https://www.baa.org"
+              },
+              new RunningModel
+              {
+                  RunningId = 4,
+                  Name = "Bolder Boulder 10k",
+                  Distance = 6.2,
+                  Date = DateTime.Parse("05/30/2022"),
+                  Website = "https://www.bolderboulder.com"
+              },
+              new RunningModel
+              {
+                  RunningId = 5,
+                  Name = "Chicago Marathon",
+                  Distance = 26.2,
+                  Date = DateTime.Parse("08/09/2022"),
+                  Website = "https://www.chicagomarathon.com"
               }
           );
         }
