@@ -1,11 +1,11 @@
 ﻿@model List<AnimationModel>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Animation Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Group 8 --Hobbies</h1>
-    <h2>Animation Page</h2>
+    <h1 class="display-4">Group 8 - Hobbies</h1>
+    <h2 style=text-align:center;>@ViewData["Title"]</h2>
 
     <a asp-controller="AnimationController" asp-action="Add">Add New Animation</a>
     <table class="table table-bordered table-striped">
