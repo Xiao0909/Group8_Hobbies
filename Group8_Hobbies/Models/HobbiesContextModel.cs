@@ -1,4 +1,5 @@
-﻿using Group8_Hobbies.Models.Sports;
+﻿using Group8_Hobbies.Models.Games;
+using Group8_Hobbies.Models.Sports;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -15,6 +16,8 @@ namespace Group8_Hobbies.Models
         public DbSet<SportsModel> Sports { get; set; } 
         public DbSet<RunningModel> Races { get; set; }
 
+        public DbSet<GamesModel> Games { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AnimationModel>().HasKey(x => x.AnimeId);
@@ -22,6 +25,7 @@ namespace Group8_Hobbies.Models
 
             modelBuilder.Entity<SportsModel>().HasKey(x => x.SportsModelId);
             modelBuilder.Entity<RunningModel>().HasKey(x => x.RunningId);
+            modelBuilder.Entity<GamesModel>().HasKey(x => x.GamesModelID);
 
             modelBuilder.Entity<AnimationModel>().HasData(
 
@@ -171,6 +175,102 @@ namespace Group8_Hobbies.Models
               }
           );
 
+            modelBuilder.Entity<GamesModel>().HasData(
+                new GamesModel
+
+
+                //    { 9, "Sekiro: Shadows Die Twice", "Acction/Hack & Slash", "PS4/PS5/PC/XBox 1/XBox Series S/X", "Bandai Namco", 9 },
+                //    { 10, "Destiny 2", "First Person Shooter", "PS4/PS5/PC/XBox 1/XBox Series S/X", "Activision/Bungie", 7 }
+                {
+                    GamesModelID = 1,
+                    GameName = "Horizon: Zero Dawn",
+                    GameGenre = "Open world Adventure/Action Role Playing Game",
+                    AvailablePlatform = "PS4/PS5/PC",
+                    GamePublisher = "Sony Interactive Entertainment",
+                    PersonalRating = 9
+                },
+                new GamesModel
+                {
+                    GamesModelID = 2,
+                    GameName = "Ghost of Tsushima",
+                    GameGenre = "Open world Adventure/Action Role Playing Game",
+                    AvailablePlatform = "PS4/PS5",
+                    GamePublisher = "Sony Interactive Entertainment",
+                    PersonalRating = 10
+                },
+                new GamesModel
+                {
+                    GamesModelID = 3,
+                    GameName = "Elden Ring",
+                    GameGenre = "Open world Adventure/Action Role Playing Game",
+                    AvailablePlatform = "PS4/PS5/PC/XBox 1/XBox Series S/X",
+                    GamePublisher = "Bandai Namco",
+                    PersonalRating = 10
+                },
+                new GamesModel
+                {
+                    GamesModelID = 4,
+                    GameName = "Warframe",
+                    GameGenre = "Open world Adventure/Action Role Playing Game",
+                    AvailablePlatform = "All",
+                    GamePublisher = "Digital Extremes",
+                    PersonalRating = 8
+                },
+                new GamesModel
+                {
+                    GamesModelID = 5,
+                    GameName = "Control",
+                    GameGenre = "Action/Adventure",
+                    AvailablePlatform = "All",
+                    GamePublisher = "505 Games",
+                    PersonalRating = 9
+                },
+                new GamesModel
+                {
+                    GamesModelID = 6,
+                    GameName = "Sifu",
+                    GameGenre = "Action",
+                    AvailablePlatform = "PS4/PS5/PC",
+                    GamePublisher = "Sloclap",
+                    PersonalRating = 7
+                },
+                new GamesModel
+                {
+                    GamesModelID = 7,
+                    GameName = "God of War(2018)",
+                    GameGenre = "Action/Adventture",
+                    AvailablePlatform = "PS4/PS5/PC",
+                    GamePublisher = "Sony Interactive Entertainment",
+                    PersonalRating = 9
+                },
+                new GamesModel
+                {
+                    GamesModelID = 8,
+                    GameName = "Little Nightmares",
+                    GameGenre = "Puzzle/Platformer/Horror",
+                    AvailablePlatform = "All",
+                    GamePublisher = "Bandai Namco",
+                    PersonalRating = 8
+                },
+                new GamesModel
+                {
+                    GamesModelID = 9,
+                    GameName = "Sekiro: Shadows Die Twice",
+                    GameGenre = "Action/Hack & Slash",
+                    AvailablePlatform = "PS4/PS5/PC/XBox 1/XBox Series S/X",
+                    GamePublisher = "Bandai Namco",
+                    PersonalRating = 9
+                },
+                new GamesModel
+                {
+                    GamesModelID = 10,
+                    GameName = "Destiny 2",
+                    GameGenre = "First Person Shooter/MMO",
+                    AvailablePlatform = "PS4/PS5/PC/XBox 1/XBox Series S/X",
+                    GamePublisher = "Activision/Bungie",
+                    PersonalRating = 7
+                }
+            );
         }
     }
 }
