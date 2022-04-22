@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var sport in Model)
+            @foreach (var sport in Model)
             {
                 <tr>
                     <td>@sport.SportsName</td>
@@ -34,7 +34,7 @@
                     @*<td>
                         <a asp-controller="SportsController" asp-action="Edit" asp-route-id="@sport.SportsModelId">Edit</a>
                         <a asp-controller="SportsController" asp-action="Delete" asp-route-id="@sport.SportsModelId">Delete</a>
-                    </td>*@
+                        </td>*@
                 </tr>
             }
         </tbody>
