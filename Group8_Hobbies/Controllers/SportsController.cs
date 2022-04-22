@@ -1,4 +1,4 @@
-﻿using Group8_Hobbies.Models;
+using Group8_Hobbies.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
