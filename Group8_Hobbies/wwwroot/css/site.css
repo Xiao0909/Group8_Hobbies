@@ -148,7 +148,7 @@ textarea {
 #heroHome {
 	height: 500px;
 	width: 500px;
-	background-image: url("hobbyCollage.jpg");
+	background-image: url("~/images/hobbyCollage.jpg");
 	background-size: 100% 100%;
 	display: block;
 	margin-left: auto;
