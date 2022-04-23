@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Group8_Hobbies.Migrations
 {
     [DbContext(typeof(HobbiesContextModel))]
-    [Migration("20220420174924_Initial")]
+    [Migration("20220423011912_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,16 +29,19 @@ namespace Group8_Hobbies.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PublishYear")
                         .HasColumnType("int");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
+                    b.Property<string>("PublisherCountry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PublisherId1")
-                        .HasColumnType("int");
+                    b.Property<string>("PublisherName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rate")
                         .HasColumnType("int");
@@ -48,8 +51,6 @@ namespace Group8_Hobbies.Migrations
 
                     b.HasKey("AnimeId");
 
-                    b.HasIndex("PublisherId1");
-
                     b.ToTable("Animations");
 
                     b.HasData(
@@ -58,7 +59,8 @@ namespace Group8_Hobbies.Migrations
                             AnimeId = 1,
                             Name = "Demon Slayer",
                             PublishYear = 2019,
-                            PublisherId = 1,
+                            PublisherCountry = "Japan",
+                            PublisherName = "UFOTable",
                             Rate = 4,
                             WatchingYear = 2020
                         },
@@ -67,7 +69,8 @@ namespace Group8_Hobbies.Migrations
                             AnimeId = 2,
                             Name = "My NeighborTotoro",
                             PublishYear = 1988,
-                            PublisherId = 2,
+                            PublisherCountry = "Japan",
+                            PublisherName = "Ghibli",
                             Rate = 5,
                             WatchingYear = 2007
                         },
@@ -76,55 +79,11 @@ namespace Group8_Hobbies.Migrations
                             AnimeId = 3,
                             Name = "White Cat Legend",
                             PublishYear = 2020,
-                            PublisherId = 3,
+                            PublisherCountry = "China",
+                            PublisherName = "Nice Boat Animation Studio",
                             Rate = 4,
                             WatchingYear = 2020
                         });
-                });
-
-            modelBuilder.Entity("Group8_Hobbies.Models.PublishModel", b =>
-                {
-                    b.Property<int>("PublisherId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PublisherId");
-
-                    b.ToTable("Publishes");
-
-                    b.HasData(
-                        new
-                        {
-                            PublisherId = 1,
-                            Country = "Japan",
-                            Name = "UFOTable"
-                        },
-                        new
-                        {
-                            PublisherId = 2,
-                            Country = "Japan",
-                            Name = "Ghibli"
-                        },
-                        new
-                        {
-                            PublisherId = 3,
-                            Country = "China",
-                            Name = "Nice Boat Animation Studio"
-                        });
-                });
-
-            modelBuilder.Entity("Group8_Hobbies.Models.AnimationModel", b =>
-                {
-                    b.HasOne("Group8_Hobbies.Models.PublishModel", "Publish")
-                        .WithMany()
-                        .HasForeignKey("PublisherId1");
                 });
 #pragma warning restore 612, 618
         }

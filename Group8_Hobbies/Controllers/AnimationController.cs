@@ -19,7 +19,7 @@ namespace Group8_Hobbies.Controllers
         }
         public IActionResult Index()
         {
-            var animes = context.Animations.Include(p => p.Publish)
+            var animes = context.Animations
                 .OrderBy(n => n.Name).ToList();
             return View(animes);
         }
@@ -53,12 +53,13 @@ namespace Group8_Hobbies.Controllers
                     context.Animations.Update(anime);
                 
                 context.SaveChanges();
+                return RedirectToAction("Index", "Animation");
             }
             else
             {
                 ViewBag.Action = (anime.AnimeId == 0) ? "Add" : "Edit";
+                return View(anime);
             }
-            return View(anime);
         }
 
         [HttpGet]
@@ -74,7 +75,7 @@ namespace Group8_Hobbies.Controllers
         {
             context.Animations.Remove(model);
             context.SaveChanges();
-            return RedirectToAction("index", "AnimationController");
+            return RedirectToAction("Index", "Animation");
 
         }
     }
