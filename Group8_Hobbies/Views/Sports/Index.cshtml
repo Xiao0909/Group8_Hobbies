@@ -8,7 +8,7 @@
     <h1 class="display-4">Group 8 - Hobbies</h1>
     <h2 style=text-align:center;>@ViewData["Title"]</h2>
 
-    <p>Sports is a great way of keeping yourself fit. I like sports. So should you.</p>
+    <p>Sports are a great way of keeping yourself fit. I like sports. So should you.</p>
     @*<a asp-controller="SportsController" asp-action="Add">Add New Sport</a>*@
     <table class="table table-bordered table-striped">
         <thead>
@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var sport in Model)
+            @foreach (var sport in Model)
             {
                 <tr>
                     <td>@sport.SportsName</td>
@@ -33,7 +33,7 @@
                     @*<td>
                         <a asp-controller="SportsController" asp-action="Edit" asp-route-id="@sport.SportsModelId">Edit</a>
                         <a asp-controller="SportsController" asp-action="Delete" asp-route-id="@sport.SportsModelId">Delete</a>
-                    </td>*@
+                        </td>*@
                 </tr>
             }
         </tbody>
