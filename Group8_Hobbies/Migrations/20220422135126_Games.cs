@@ -28,16 +28,16 @@ namespace Group8_Hobbies.Migrations
                 columns: new[] { "GamesModelID", "AvailablePlatform", "GameGenre", "GameName", "GamePublisher", "PersonalRating" },
                 values: new object[,]
                 {
-                    { 1, "PS4/PS5/PC", "Open world Adventure/Action Role Playing Game", "Horizon: Zero Dawn", "Sony Interactive Entertainment", 9 },
-                    { 2, "PS4/PS5", "Open world Adventure/Action Role Playing Game", "Ghost of Tsushima", "Sony Interactive Entertainment", 10 },
-                    { 3, "PS4/PS5/PC/XBox 1/XBox Series S/X", "Open world Adventure/Action Role Playing Game", "Elden Ring", "Bandai Namco", 10 },
-                    { 4, "All", "Open world Adventure/Action Role Playing Game", "Warframe", "Digital Extremes", 8 },
-                    { 5, "All", "Action/Adventure", "Control", "505 Games", 9 },
-                    { 6, "PS4/PS5/PC", "Action", "Sifu", "Sloclap", 7 },
-                    { 7, "PS4/PS5/PC", "Action/Adventture", "God of War(2018)", "Sony Interactive Entertainment", 9 },
-                    { 8, "All", "Puzzle/Platformer/Horror", "Little Nightmares", "Bandai Namco", 8 },
-                    { 9, "PS4/PS5/PC/XBox 1/XBox Series S/X", "Action/Hack & Slash", "Sekiro: Shadows Die Twice", "Bandai Namco", 9 },
-                    { 10, "PS4/PS5/PC/XBox 1/XBox Series S/X", "First Person Shooter/MMO", "Destiny 2", "Activision/Bungie", 7 }
+                    { 1, "PS4/PS5/PC", "Open World Adventure / Action Role Playing Game", "Horizon: Zero Dawn", "Sony Interactive Entertainment", 9 },
+                    { 2, "PS4/PS5", "Open World Adventure / Action Role Playing Game", "Ghost of Tsushima", "Sony Interactive Entertainment", 10 },
+                    { 3, "PS4 / PS5 / PC / XBox 1 / XBox Series S/X", "Open world Adventure/Action Role Playing Game", "Elden Ring", "Bandai Namco", 10 },
+                    { 4, "All", "Open World Adventure / Action Role Playing Game", "Warframe", "Digital Extremes", 8 },
+                    { 5, "All", "Action / Adventure", "Control", "505 Games", 9 },
+                    { 6, "PS4 / PS5 / PC", "Action", "Sifu", "Sloclap", 7 },
+                    { 7, "PS4 / PS5 / PC", "Action / Adventture", "God of War (2018)", "Sony Interactive Entertainment", 9 },
+                    { 8, "All", "Puzzle / Platformer / Horror", "Little Nightmares", "Bandai Namco", 8 },
+                    { 9, "PS4 / PS5 / PC / XBox 1 / XBox Series S/X", "Action/Hack & Slash", "Sekiro: Shadows Die Twice", "Bandai Namco", 9 },
+                    { 10, "PS4 / PS5 / PC / XBox 1 / XBox Series S/X", "First Person Shooter/MMO", "Destiny 2", "Activision/Bungie", 7 }
                 });
         }
 
