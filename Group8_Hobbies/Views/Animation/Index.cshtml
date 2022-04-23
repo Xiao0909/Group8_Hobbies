@@ -9,13 +9,14 @@
 
     <p>Animation is a great way to learn new behaviors and have fun. It's a fun way to have your own fantasy. In the table below, I have listed some of my favorite animes.</p>
 
-    <a asp-controller="AnimationController" asp-action="Add">Add New Animation</a>
+    <a asp-controller="Animation" asp-action="Add">Add New Animation</a>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Publish Year</th>
                 <th>Watching Year</th>
+                <th>Publisher</th>
                 <th>Rate</th>
                 <th></th>
             </tr>
@@ -27,10 +28,11 @@
                     <td>@anime.Name</td>
                     <td>@anime.PublishYear</td>
                     <td>@anime.WatchingYear</td>
+                    <td>@anime.Typo</td>
                     <td>@anime.Rate</td>
                     <td>
-                        <a asp-controller="AnimationController" asp-action="Edit" asp-route-id="@anime.AnimeId">Edit</a>
-                        <a asp-controller="AnimationController" asp-action="Delete" asp-route-id="@anime.AnimeId">Delete</a>
+                        <a asp-controller="Animation" asp-action="Edit" asp-route-id="@anime.AnimeId">Edit</a>
+                        <a asp-controller="Animation" asp-action="Delete" asp-route-id="@anime.AnimeId">Delete</a>
                     </td>
                 </tr>
             }

@@ -20,103 +20,69 @@ namespace Group8_Hobbies.Migrations
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Group8_Hobbies.Models.AnimationModel", b =>
-                {
-                    b.Property<int>("AnimeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            {
+                b.Property<int>("AnimeId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PublishYear")
-                        .HasColumnType("int");
+                b.Property<int>("PublishYear")
+                    .HasColumnType("int");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
+                b.Property<string>("PublisherCountry")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PublisherId1")
-                        .HasColumnType("int");
+                b.Property<string>("PublisherName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rate")
-                        .HasColumnType("int");
+                b.Property<int>("Rate")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("WatchingYear")
-                        .HasColumnType("int");
+                b.Property<int?>("WatchingYear")
+                    .HasColumnType("int");
 
-                    b.HasKey("AnimeId");
+                b.HasKey("AnimeId");
 
-                    b.HasIndex("PublisherId1");
+                b.ToTable("Animations");
 
-                    b.ToTable("Animations");
-
-                    b.HasData(
-                        new
-                        {
-                            AnimeId = 1,
-                            Name = "Demon Slayer",
-                            PublishYear = 2019,
-                            PublisherId = 1,
-                            Rate = 4,
-                            WatchingYear = 2020
-                        },
-                        new
-                        {
-                            AnimeId = 2,
-                            Name = "My NeighborTotoro",
-                            PublishYear = 1988,
-                            PublisherId = 2,
-                            Rate = 5,
-                            WatchingYear = 2007
-                        },
-                        new
-                        {
-                            AnimeId = 3,
-                            Name = "White Cat Legend",
-                            PublishYear = 2020,
-                            PublisherId = 3,
-                            Rate = 4,
-                            WatchingYear = 2020
-                        });
-                });
-
-            modelBuilder.Entity("Group8_Hobbies.Models.PublishModel", b =>
-                {
-                    b.Property<int>("PublisherId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PublisherId");
-
-                    b.ToTable("Publishes");
-
-                    b.HasData(
-                        new
-                        {
-                            PublisherId = 1,
-                            Country = "Japan",
-                            Name = "UFOTable"
-                        },
-                        new
-                        {
-                            PublisherId = 2,
-                            Country = "Japan",
-                            Name = "Ghibli"
-                        },
-                        new
-                        {
-                            PublisherId = 3,
-                            Country = "China",
-                            Name = "Nice Boat Animation Studio"
-                        });
-                });
+                b.HasData(
+                    new
+                    {
+                        AnimeId = 1,
+                        Name = "Demon Slayer",
+                        PublishYear = 2019,
+                        PublisherCountry = "Japan",
+                        PublisherName = "UFOTable",
+                        Rate = 4,
+                        WatchingYear = 2020
+                    },
+                    new
+                    {
+                        AnimeId = 2,
+                        Name = "My NeighborTotoro",
+                        PublishYear = 1988,
+                        PublisherCountry = "Japan",
+                        PublisherName = "Ghibli",
+                        Rate = 5,
+                        WatchingYear = 2007
+                    },
+                    new
+                    {
+                        AnimeId = 3,
+                        Name = "White Cat Legend",
+                        PublishYear = 2020,
+                        PublisherCountry = "China",
+                        PublisherName = "Nice Boat Animation Studio",
+                        Rate = 4,
+                        WatchingYear = 2020
+                    });
+            });
 
             modelBuilder.Entity("Group8_Hobbies.Models.Sports.SportsModel", b =>
                 {
@@ -198,6 +164,7 @@ namespace Group8_Hobbies.Migrations
                         .WithMany()
                         .HasForeignKey("PublisherId1");
                 });
+
 #pragma warning restore 612, 618
         }
     }

@@ -11,7 +11,6 @@ namespace Group8_Hobbies.Models
             : base(options) { }
         
         public DbSet<AnimationModel> Animations { get; set; }
-        public DbSet<PublishModel> Publishes { get; set; }
 
         public DbSet<SportsModel> Sports { get; set; } 
         public DbSet<RunningModel> Races { get; set; }
@@ -21,7 +20,6 @@ namespace Group8_Hobbies.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AnimationModel>().HasKey(x => x.AnimeId);
-            modelBuilder.Entity<PublishModel>().HasKey(x => x.PublisherId);
 
             modelBuilder.Entity<SportsModel>().HasKey(x => x.SportsModelId);
             modelBuilder.Entity<RunningModel>().HasKey(x => x.RunningId);
@@ -37,7 +35,8 @@ namespace Group8_Hobbies.Models
                     PublishYear = 2019,
                     WatchingYear = 2020,
                     Rate = 4,
-                    PublisherId = 1,
+                    PublisherName ="UFOTable",
+                    PublisherCountry = "Japan",
                 },
                 new AnimationModel
                 {
@@ -46,7 +45,8 @@ namespace Group8_Hobbies.Models
                     PublishYear = 1988,
                     WatchingYear = 2007,
                     Rate = 5,
-                    PublisherId = 2,
+                    PublisherCountry="Japan",
+                    PublisherName="Ghibli"
                 },
                 new AnimationModel
                 {
@@ -55,30 +55,9 @@ namespace Group8_Hobbies.Models
                     PublishYear = 2020,
                     WatchingYear = 2020,
                     Rate = 4,
-                    PublisherId = 3,
+                    PublisherName = "Nice Boat Animation Studio",
+                    PublisherCountry="China"
                 }
-            );
-
-            // publisher info
-            modelBuilder.Entity<PublishModel>().HasData(
-              new PublishModel
-              {
-                  PublisherId = 1,
-                  Country = "Japan",
-                  Name = "UFOTable"
-              },
-              new PublishModel
-              {
-                  PublisherId = 2,
-                  Country = "Japan",
-                  Name = "Ghibli"
-              },
-              new PublishModel
-              {
-                  PublisherId = 3,
-                  Country = "China",
-                  Name = "Nice Boat Animation Studio"
-              }
             );
 
             //Sports info
@@ -271,6 +250,7 @@ namespace Group8_Hobbies.Models
                     PersonalRating = 7
                 }
             );
+
         }
     }
 }
